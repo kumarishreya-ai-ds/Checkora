@@ -1449,6 +1449,13 @@
                 paused = false;
                 updatePauseUI();
 
+                // Reset status text when the board is initialized for a new game
+                showStatus('Game started', false);
+                const overlay = document.getElementById('gameOverOverlay');
+                if (overlay) {
+                    overlay.classList.remove('active');
+                }
+
                 // Auto-trigger AI if it's their turn
                 if (gameMode === 'ai' && turn !== playerColor) {
                     queueAIMoveIfNeeded();
